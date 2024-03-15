@@ -1,7 +1,12 @@
 ---
 -- hosts: all
+   become: yes
 
-    tasks:
+   tasks:
+
         - name: Run the equivalent of "apt-get update" as a separate step
-            ansible.builtin.apt:
+          apt:
             update_cache: yes
+          when:
+            - ansible_os_family == "Debian"
+            - ansible_distribution == "Ubuntu"
