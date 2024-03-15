@@ -1,11 +1,11 @@
 ---
--- hosts: all
-   become: yes
+- hosts: all
+  become: yes
 
-   tasks:
-        - name: Run the equivalent of "apt-get update" as a separate step
-          apt:
-            update_cache: yes
-          when:
-            - ansible_os_family == "Debian"
-            - ansible_distribution == "Ubuntu"
+  tasks:
+       - name: Run the equivalent of "apt-get update" as a separate step
+         apt:
+           update_cache: yes
+         when:
+           - ansible_os_family == "Debian"
+           - ansible_distribution == "Ubuntu"
