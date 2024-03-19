@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: yes
+  become_user: jared_huang
   tasks:
        - name: Run the equivalent of "apt-get update" as a separate step
          apt:
